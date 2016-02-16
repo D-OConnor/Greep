@@ -45,7 +45,7 @@ public class MyGreep extends Greep
 {
     // Remember: you cannot extend the Greep's memory. So:
     // no additional fields (other than final fields) allowed in this class!
-    
+    private static final int TOMATO_LOCATION_KNOWN = 3;
     /**
      * Default constructor. Do not remove.
      */
@@ -60,19 +60,33 @@ public class MyGreep extends Greep
     public void act()
     {
         super.act();   // do not delete! leave as first statement in act().
-        if (carryingTomato()) {
-            if(atShip()) {
-                dropTomato();
-            }
-            else {
-                turnHome();
-                move();
-            }
+        
+        checkFood();
+        
+        if (carryingTomato()) { 
+            bringTomatoHome();
+        } 
+        else if(getTomatoes() != null) 
+        {
+            TomatoPile tomatoes = getTomatoes();
+            if(!blockAtPile(tomatoes)) { // Not blocking so lets go towards the centre of the pile 
+                turnTowards(tomatoes.getX(), tomatoes.getY()); 
+                move(); 
+            } 
+        } 
+        else if (getMemory(0) == TOMATO_LOCATION_KNOWN) 
+        { 
+            // Hmm. We know where there are some tomatoes... 
+            turnTowards(getMemory(1), getMemory(2)); 
+            move(); 
+        } 
+        else if (numberOfOpponents(false) > 3) 
+        { 
+            // Can we see four or more opponents? 
+            kablam();
         }
-        else {
-            randomWalk();
-            checkFood();
-        }
+        else { randomWalk(); }
+
     }
     
     /** 
@@ -99,6 +113,9 @@ public class MyGreep extends Greep
             loadTomato();
             // Note: this attempts to load a tomato onto *another* Greep. It won't
             // do anything if we are alone here.
+            setMemory(0, TOMATO_LOCATION_KNOWN);
+            setMemory(1, tomatoes.getX());
+            setMemory(2, tomatoes.getY());
         }
     }
 
@@ -108,6 +125,49 @@ public class MyGreep extends Greep
      */
     public String getName()
     {
-        return "Your name here";  // write your name here!
+        return "Kathryn";  // write your name here!
     }
+    
+    /**
+     * Bring a tomato to our ship. Drop it if we are at the ship. 
+     */ 
+    private void bringTomatoHome() 
+    { 
+        if(atShip()) 
+        { 
+            dropTomato(); 
+        } 
+        else 
+        { 
+            turnHome(); 
+            move(); 
+        } 
+    }
+    
+    /**
+     * If we are at a tomato pile and none of our friends are blocking, we will block.
+     * @return True if we are blocking, false if not. 
+     */ 
+    private boolean blockAtPile(TomatoPile tomatoes) 
+    { 
+        // Are we at the centre of the pile of tomatoes?
+        boolean atPileCentre = tomatoes != null && distanceTo(tomatoes.getX(), tomatoes.getY()) < 4; 
+        if(atPileCentre && getFriend() == null ) 
+        { 
+            // No friends at this pile, so we might as well block 
+            block(); 
+            return true; 
+        } 
+        else 
+        { 
+            return false; 
+        }
+    }
+    
+    private int distanceTo(int x, int y) 
+    { 
+        int deltaX = getX() - x; 
+        int deltaY = getY() - y; 
+        return (int) Math.sqrt(deltaX * deltaX + deltaY * deltaY); 
+    } 
 }
