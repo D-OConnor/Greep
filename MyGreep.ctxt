@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=MyGreep
+comment0.text=\r\n\ A\ Greep\ is\ an\ alien\ creature\ that\ likes\ to\ collect\ tomatoes.\r\n\ \r\n\ Rules\:\r\n\ \r\n\ Rule\ 1\ \r\n\ Only\ change\ the\ class\ 'MyGreep'.\ No\ other\ classes\ may\ be\ modified\ or\ created.\ \r\n\r\n\ Rule\ 2\ \r\n\ You\ cannot\ extend\ the\ Greeps'\ memory.\ That\ is\:\ you\ are\ not\ allowed\ to\ add\ \r\n\ fields\ (other\ than\ final\ fields)\ to\ the\ class.\ Some\ general\ purpose\ memory\ is\r\n\ provided.\ (The\ ship\ can\ also\ store\ data.)\ \r\n\ \r\n\ Rule\ 3\ \r\n\ You\ can\ call\ any\ method\ defined\ in\ the\ "Greep"\ superclass,\ except\ act().\ \r\n\ \r\n\ Rule\ 4\ \r\n\ Greeps\ have\ natural\ GPS\ sensitivity.\ You\ can\ call\ getX()/getY()\ on\ any\ object\r\n\ and\ get/setRotation()\ on\ yourself\ any\ time.\ Friendly\ greeps\ can\ communicate.\ \r\n\ You\ can\ call\ getMemory()\ and\ getFlag()\ on\ another\ greep\ to\ ask\ what\ they\ know.\ \r\n\ \r\n\ Rule\ 5\ \r\n\ No\ creation\ of\ objects.\ You\ are\ not\ allowed\ to\ create\ any\ scenario\ objects\ \r\n\ (instances\ of\ user-defined\ classes,\ such\ as\ MyGreep).\ Greeps\ have\ no\ magic\ \r\n\ powers\ -\ they\ cannot\ create\ things\ out\ of\ nothing.\ \r\n\ \r\n\ Rule\ 6\ \r\n\ You\ are\ not\ allowed\ to\ call\ any\ methods\ (other\ than\ those\ listed\ in\ Rule\ 4)\r\n\ of\ any\ other\ class\ in\ this\ scenario\ (including\ Actor\ and\ World).\ \r\n\ \ \r\n\ If\ you\ change\ the\ name\ of\ this\ class\ you\ should\ also\ change\ it\ in\r\n\ Ship.createGreep().\r\n\ \r\n\ Please\ do\ not\ publish\ your\ solution\ anywhere.\ We\ might\ want\ to\ run\ this\r\n\ competition\ again,\ or\ it\ might\ be\ used\ by\ teachers\ to\ run\ in\ a\ class,\ and\r\n\ that\ would\ be\ ruined\ if\ solutions\ were\ available.\r\n\ \r\n\ \r\n\ @author\ (your\ name\ here)\r\n\ @version\ 0.1\r\n
+comment1.params=ship
+comment1.target=MyGreep(Ship)
+comment1.text=\r\n\ Default\ constructor.\ Do\ not\ remove.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Do\ what\ a\ greep's\ gotta\ do.\r\n
+comment3.params=
+comment3.target=void\ randomWalk()
+comment3.text=\ \r\n\ Move\ forward,\ with\ a\ slight\ chance\ of\ turning\ randomly\r\n
+comment4.params=
+comment4.target=void\ checkFood()
+comment4.text=\r\n\ Is\ there\ any\ food\ here\ where\ we\ are?\ If\ so,\ try\ to\ load\ some\!\r\n
+comment5.params=
+comment5.target=java.lang.String\ getName()
+comment5.text=\r\n\ This\ method\ specifies\ the\ name\ of\ the\ greeps\ (for\ display\ on\ the\ result\ board).\r\n\ Try\ to\ keep\ the\ name\ short\ so\ that\ it\ displays\ nicely\ on\ the\ result\ board.\r\n
+comment6.params=
+comment6.target=void\ bringTomatoHome()
+comment6.text=\r\n\ Bring\ a\ tomato\ to\ our\ ship.\ Drop\ it\ if\ we\ are\ at\ the\ ship.\ \r\n
+comment7.params=tomatoes
+comment7.target=boolean\ blockAtPile(TomatoPile)
+comment7.text=\r\n\ If\ we\ are\ at\ a\ tomato\ pile\ and\ none\ of\ our\ friends\ are\ blocking,\ we\ will\ block.\r\n\ @return\ True\ if\ we\ are\ blocking,\ false\ if\ not.\ \r\n
+comment8.params=x\ y
+comment8.target=int\ distanceTo(int,\ int)
+numComments=9

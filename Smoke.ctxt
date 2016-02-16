@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Smoke
+comment0.text=\r\n\ A\ puff\ of\ smoke.\ Once\ placed\ into\ the\ world,\ it\ quickly\ evaporates\ and\r\n\ then\ disappears.\r\n\ \r\n\ @author\ Michael\ Kolling\r\n\ @version\ 1.0\r\n
+comment1.params=children\ isTeamTwo
+comment1.target=Smoke(int,\ boolean)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ In\ every\ step,\ get\ smaller\ until\ we\ disappear.\r\n
+comment3.params=
+comment3.target=void\ spawn()
+comment4.params=
+comment4.target=void\ shrink()
+numComments=5
