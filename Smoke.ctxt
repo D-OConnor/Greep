@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=children\ isTeamTwo
+comment0.target=Smoke(int,\ boolean)
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ In\ every\ step,\ get\ smaller\ until\ we\ disappear.\r\n
+comment2.params=
+comment2.target=void\ spawn()
+comment3.params=
+comment3.target=void\ shrink()
+numComments=4

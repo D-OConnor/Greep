@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=ship
+comment0.target=MyGreep(Ship)
+comment0.text=\r\n\ Default\ constructor.\ Do\ not\ remove.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Do\ what\ a\ greep's\ gotta\ do.\r\n
+comment2.params=
+comment2.target=void\ randomWalk()
+comment2.text=\ \r\n\ Move\ forward,\ with\ a\ slight\ chance\ of\ turning\ randomly\r\n
+comment3.params=
+comment3.target=void\ checkFood()
+comment3.text=\r\n\ Is\ there\ any\ food\ here\ where\ we\ are?\ If\ so,\ try\ to\ load\ some\!\r\n
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment4.text=\r\n\ This\ method\ specifies\ the\ name\ of\ the\ greeps\ (for\ display\ on\ the\ result\ board).\r\n\ Try\ to\ keep\ the\ name\ short\ so\ that\ it\ displays\ nicely\ on\ the\ result\ board.\r\n
+numComments=5
