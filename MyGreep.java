@@ -126,6 +126,12 @@ public class MyGreep extends Greep
             setMemory(1, tomatoes.getX());
             setMemory(2, tomatoes.getY());
         }
+        
+        if(tomatoes == null && getMemory(0) == TOMATO_LOCATION_KNOWN) {
+            if(distanceTo(getMemory(1), getMemory(2)) < 4) {
+                setMemory(0, 0);
+            }
+        }
     }
 
     /**
