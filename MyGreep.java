@@ -45,7 +45,7 @@ public class MyGreep extends Greep
 {
     // Remember: you cannot extend the Greep's memory. So:
     // no additional fields (other than final fields) allowed in this class!
-    private static final int TOMATO_LOCATION_KNOWN = 3;
+    private static final int TOMATO_LOCATION_KNOWN = 1;
     /**
      * Default constructor. Do not remove.
      */
@@ -85,8 +85,17 @@ public class MyGreep extends Greep
             // Can we see four or more opponents? 
             kablam();
         }
-        else { randomWalk(); }
-
+        else { 
+            randomWalk(); 
+        }
+        
+        // Avoid obstacles
+        if (atWater() || moveWasBlocked()) {
+            // If we were blocked, try to move somewhere else
+            int r = getRotation();
+            setRotation (r + Greenfoot.getRandomNumber(2) * 180 - 90);
+            move();
+        }
     }
     
     /** 
@@ -116,6 +125,22 @@ public class MyGreep extends Greep
             setMemory(0, TOMATO_LOCATION_KNOWN);
             setMemory(1, tomatoes.getX());
             setMemory(2, tomatoes.getY());
+        }
+        //if we don't know the location of a tomato pile and a friend does, get the position from the friend
+        else if(getFriend() != null && getMemory(0) != TOMATO_LOCATION_KNOWN) {
+            Greep friend = getFriend();
+            if(friend.getMemory(0) == TOMATO_LOCATION_KNOWN) {
+                setMemory(1, friend.getMemory(1));
+                setMemory(2, friend.getMemory(2));
+                setMemory(0, TOMATO_LOCATION_KNOWN);
+            }
+        }
+        
+        //if tomatoes are no longer at the location in memory
+        if(tomatoes == null && getMemory(0) == TOMATO_LOCATION_KNOWN) {
+            if(distanceTo(getMemory(1), getMemory(2)) < 4) {
+                setMemory(0, 0);
+            }
         }
     }
 
