@@ -85,8 +85,17 @@ public class MyGreep extends Greep
             // Can we see four or more opponents? 
             kablam();
         }
-        else { randomWalk(); }
-
+        else { 
+            randomWalk(); 
+        }
+        
+        // Avoid obstacles
+        if (atWater() || moveWasBlocked()) {
+            // If we were blocked, try to move somewhere else
+            int r = getRotation();
+            setRotation (r + Greenfoot.getRandomNumber(2) * 180 - 90);
+            move();
+        }
     }
     
     /** 
