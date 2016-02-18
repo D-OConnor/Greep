@@ -126,7 +126,17 @@ public class MyGreep extends Greep
             setMemory(1, tomatoes.getX());
             setMemory(2, tomatoes.getY());
         }
+        //if we don't know the location of a tomato pile and a friend does, get the position from the friend
+        else if(getFriend() != null && getMemory(0) != TOMATO_LOCATION_KNOWN) {
+            Greep friend = getFriend();
+            if(friend.getMemory(0) == TOMATO_LOCATION_KNOWN) {
+                setMemory(1, friend.getMemory(1));
+                setMemory(2, friend.getMemory(2));
+                setMemory(0, TOMATO_LOCATION_KNOWN);
+            }
+        }
         
+        //if tomatoes are no longer at the location in memory
         if(tomatoes == null && getMemory(0) == TOMATO_LOCATION_KNOWN) {
             if(distanceTo(getMemory(1), getMemory(2)) < 4) {
                 setMemory(0, 0);
