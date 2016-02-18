@@ -45,7 +45,7 @@ public class MyGreep extends Greep
 {
     // Remember: you cannot extend the Greep's memory. So:
     // no additional fields (other than final fields) allowed in this class!
-    private static final int TOMATO_LOCATION_KNOWN = 3;
+    private static final int TOMATO_LOCATION_KNOWN = 1;
     /**
      * Default constructor. Do not remove.
      */
